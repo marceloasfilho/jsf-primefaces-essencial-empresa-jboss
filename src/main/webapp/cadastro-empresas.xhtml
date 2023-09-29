@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:rich="http://richfaces.org/rich">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Cadastro de Empresas</title>
+</h:head>
+
+<f:metadata>
+    <f:viewAction action="#{cadastroEmpresaBean.todasEmpresas()}"/>
+</f:metadata>
+
+<h:body>
+    <h1>Cadastro de Empresas</h1>
+    <div id="conteudo">
+
+        <h:form>
+            <rich:dataTable value="#{cadastroEmpresaBean.todasEmpresas}"
+                            var="empresa" noDataLabel="Nenhuma informação a ser exibida" rows="10">
+                <rich:column headerText="CNPJ">
+                    <h:outputText value="#{empresa.cnpj}"/>
+                </rich:column>
+                <rich:column headerText="Razão Social" sortBy="#{empresa.razaoSocial}">
+                    <h:outputText value="#{empresa.razaoSocial}"/>
+                </rich:column>
+                <rich:column headerText="Nome Fantasia">
+                    <h:outputText value="#{empresa.nomeFantasia}"/>
+                </rich:column>
+                <rich:column headerText="Tipo de Empresa">
+                    <h:outputText value="#{empresa.tipoEmpresa.descricao}"/>
+                </rich:column>
+                <rich:column headerText="Ramo de Atividade">
+                    <h:outputText value="#{empresa.ramoAtividade.descricao}"/>
+                </rich:column>
+                <rich:column headerText="Data de Fundação">
+                    <h:outputText value="#{empresa.dataFundacao}"/>
+                </rich:column>
+                <rich:column headerText="Faturamento">
+                    <h:outputText value="#{empresa.faturamento}"/>
+                </rich:column>
+            </rich:dataTable>
+        </h:form>
+    </div>
+    <footer>
+        POC JavaEE project with RichFaces and Jboss EAP 7.4
+    </footer>
+</h:body>
+</html>

@@ -4,16 +4,14 @@ import com.github.marceloasfilho.jsfprimefacesessencialempresajboss.model.Empres
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 @ApplicationScoped
 public class EmpresaRepository {
-    @PersistenceUnit(unitName = "pu-empresa")
-    private EntityManagerFactory entityManagerFactory;
-    private final EntityManager entityManager = this.entityManagerFactory.createEntityManager();
+    @PersistenceContext(unitName = "pu-empresa")
+    private EntityManager entityManager;
 
     public Empresa findById(Long id) {
         return this.entityManager.find(Empresa.class, id);

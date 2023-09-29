@@ -21,6 +21,7 @@
 
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.charset_name">UTF-8</property>
 
         <mapping class="com.github.marceloasfilho.jsfprimefacesessencialempresajboss.model.Empresa"/>
         <mapping class="com.github.marceloasfilho.jsfprimefacesessencialempresajboss.model.RamoAtividade"/>
